@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Project Page</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="site-content/css/main.css">
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="site-content/js/main.js"></script>
+    </head>
+    <body>
+        <h1>This is the title</h1>
+        <h2>Here is a header</h2>
+        <p>This is my body text</p>
+
+        <div class="figure" data-ref="unique-name">
+            <img height=200 src="https://assets.newatlas.com/dims4/default/cdf8248/2147483647/strip/true/crop/1919x1080+0+0/resize/1440x810!/quality/90/?url=http%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Farchive%2Funiverse-expanding-acceleration-1.jpg">
+            <div class="caption">
+                <span class="text">This is the caption text.</span>
+            </div>
+        </div>
+
+        <p>Here I continue the document</p>
+        <h2>Here is another header</h2>
+        <p>Here I reference the above figure, which is called <span class="ref" data-ref="unique-name"></span>!</p>
+
+        <div class="figure center-content" data-ref="unique-name-two">
+            <img height=200 src="https://lithub.com/wp-content/uploads/2018/06/milky-way.jpg">
+            <div class="caption">
+                <span class="text">This figure will have its content centered</span>
+            </div>
+        </div>
+
+        <p>This is the end of the document. In this document we saw figure <span class="ref" data-ref="unique-name"></span> and <span class="ref" data-ref="unique-name-two"></span>!</p>
+    </body>
+</html>

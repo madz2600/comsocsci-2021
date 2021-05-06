@@ -1,0 +1,21 @@
+body
+{
+    font-family:calibri,arial,tahoma;
+    margin:10px 10%;
+}
+.figure .type
+{
+    font-weight: bold;
+}
+.figure .type::after
+{
+    content:": ";
+}
+.figure .caption .text
+{
+    font-style: italic;
+}
+.center-content
+{
+    text-align:center;
+}
