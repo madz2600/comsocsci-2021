@@ -121,7 +121,7 @@
             attractions the given edge is connecting.
             <br>
             <br>
-            We will create 2 networks, one for locals and one for the tourists. Only observations/reviews that have a caption
+            We will create 2 networks, one for locals and one for tourists. Only observations/reviews that have a caption
             can be categorised as either danish or foreign i.e. be used in the networks.
             In order to properly compare the two networks we were forced to scale the tourist network down to the same
             size as the locals network. After having done so we get these 2 networks:
@@ -151,7 +151,6 @@
             For good measure we will include a random network where it makes sense to do so.
             The random network will be constructed in such a way, it has the same properties as the average of our two
             networks, in terms of degrees, nodes, weights etc.
-            patterns we are seeing are not just random.
         </p>
         <div class="figure" data-ref="lows_n_highs">
             <img height=450 src="images/lows_n_highs.png">
@@ -248,7 +247,7 @@
         <h3>One big short coming of the network analysis:</h3>
         <p>
             Because we are limited to 1000 reviews per attraction we are faced with some big shortcomings with
-            respect to the network analyses. For instance the biggest attractions such as Tivoli Gardens with 50.000 plus
+            respect to the network analyses. For instance the biggest attractions such as Tivoli Gardens with 50.000+
             reviews should definitely be a big interconnections in the network, but this is not the case in our networks
             since we only have the 1000 most recent reviews thus neglecting a lot of possible connections to or from Tivoli
             Gardens and therefore not properly representing Tivoli Gardens. Only having the most recent reviews will also
@@ -267,8 +266,8 @@
             <br>
 
             Another work around for this could be to only concider attractions which has a 1000 or less reviews.
-            This also has drawbacks since it basically removes all the attractions that tourists who visit denmark
-            would want to see in the first place. Futher more it ruins big interconnections in the network, since
+            This also has drawbacks since it basically removes all the attractions, that tourists who visit Denmark,
+            would want to see in the first place. Furthermore it ruins big interconnections in the network, since
             everything is equally unpopular.
 
 
@@ -278,7 +277,7 @@
         <h2>Conclusion</h2>
         <p>
             The results from the network analysis should be considered with some skepticism due
-            to the already mentioned shortcomings of the data.
+            to the already mentioned short comings of the data.
             <br>
             With that in mind we found that the tourist network
             and local network were far from random and had proper underlying network structure. The structure and
@@ -292,7 +291,7 @@
             various parks.
             <br>
             Additional, we found that the most popular attractions in the
-            eyes of the tourists very more extreme than the most popular attraction in the yes of the locals. Which was
+            eyes of the tourists were more extreme than the most popular attraction in the yes of the locals. Which was
             expected as it confirms that tourists have some key places they are very likely to visit when in denmark.
             <br>
             Lastly and contrary to prior believes we found that the attractions were more tightly connected
