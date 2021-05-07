@@ -7,6 +7,10 @@ body
 {
     padding-bottom:20px;
 }
+.figure img
+{
+    max-width:100%;
+}
 .figure .type
 {
     font-weight: bold;
