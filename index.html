@@ -47,12 +47,68 @@
 
         <h2>Pre-analysis</h2>
         <p>
-            Investigate how the recent pandemic affects this project.
+            We start by taking a few looks at the general sense of our data. On <span class="ref" data-ref="reviews_distribution"></span> we can see the distribution of reviews per POI.
+
+        </p>
+        <div class="figure center-content" data-ref="reviews_distribution">
+            <img width=500 src="./figures/reviews_distribution.png">
+            <div class="caption">
+                <span class="text">The distribution of reviews. Note the clustering of ~1,000 reviews.</span>
+            </div>
+        </div>
+        <p>
+            As Google Maps has a limit to how many reviews can be seen on a page (about 1,000), we are severely limited on POIs with many thousands of reviews. This is taken into
+            consideration in our project. To divide the POIs evenly into groups based on popularity, we see there would be the last and second last bin, with the rest of the bins
+            filling out the last group.
+        </p>
+        <div class="figure center-content" data-ref="distribution_nationalities">
+            <img width=500 src="./figures/distribution_nationalities.png">
+            <div class="caption">
+                <span class="text">The most frequent nationalities in our data.</span>
+            </div>
+        </div>
+        <p>
+            From here we can see that Danish reviews account for about 1/3 of reviews with text and the rest of the nationalities total about 2/3.
+        </p>
+        <div class="figure center-content" data-ref="ratings_da_en">
+            <img width=500 src="./figures/ratings_da_en.png">
+            <div class="caption">
+                <span class="text">Frequency of the initial ratings. A user can rate 1-5 on a POI.</span>
+            </div>
+        </div>
+        <p>
+            Here we see the initial ratings of the written reviews, we see that Danish reviews are generally lower than English. We will compare this distribution with sentiment later in the text analysis.
         </p>
 
         <h2>Text Analysis</h2>
         <p>
-            What do the reviews say?
+            We start with looking at the tokens computed from the data preparation. These can be joined to a collected document for Danish and English respectively and computed in a wordcloud.
+            These wordclouds can be seen on <span class="ref" data-ref="wordclouds"></span>.
+        </p>
+        <div class="figure center-content" data-ref="wordclouds">
+            <img width=400 src="./figures/wordcloud_en.png">
+            <img width=400 src="./figures/wordcloud_da.png">
+            <div class="caption">
+                <span class="text">Wordclouds of both Danish and English tokens.</span>
+            </div>
+        </div>
+        <p>
+            We see some similarity between these two wordclouds, like "museum" and "exhibit". A few interesting notes are that words like words like museum and church appear more frequently
+            in the English wordcloud than the Danish, while the word cozy is very frequent in the Danish. The English also has time as a frequent word. This could correspond with tourists having
+            less time than locals, and would prioritise POIs worth the time.
+        </p>
+        <p>
+            We did a sentiment analysis on the captions of the reviews, to compare how they compare with the ratings. The distribution can be seen on <span class="ref" data-ref="sentiment_comparison"></span>.
+        </p>
+        <div class="figure center-content" data-ref="sentiment_comparison">
+            <img width=400 src="./figures/sentiment_da_en.png">
+            <div class="caption">
+                <span class="text">Comparing the sentiment scores between Danish and English reviews. The scores are binned to fit with the 1-5 rating Google Maps has.</span>
+            </div>
+        </div>
+        <p>
+            We see somewhat the same distributions as <span class="ref" data-ref="ratings_da_en"></span> with a difference around the neutral score. A lot more reviews are considered neutral through
+            sentiment analysis. Otherwise we see the same trend of the Danish reviews being generally lower. Overall, there is some correlation between high rating/score and low rating/score.
         </p>
 
         <h2>Network Analysis</h2>
@@ -249,6 +305,13 @@
             It would be interesting to redo the network analysis with proper data which is not limited in one way
             or another. The data from trip adviser seems as promising candidate for this.
 
+            We have an idea for how this project could evolve. For the tokens of the reviews, it could be possible to categorize the tokens in groups like fun, history, family etc.
+            to analyse what kind of goal a group of people seek when visiting Copenhagen or another specific location.
+        </p>
+        
+        <h2>Resources</h2>
+        <p>
+            You can download our data from <a href="#">here</a>.
         </p>
     </body>
 </html>
