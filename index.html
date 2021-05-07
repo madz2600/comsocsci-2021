@@ -41,8 +41,35 @@
 
         <h2>Pre-analysis</h2>
         <p>
-            Investigate how the recent pandemic affects this project.
+            We start by taking a few looks at the general sense of our data. On <span class="ref" data-ref="reviews_distribution"></span> we can see the distribution of reviews per POI.
+
         </p>
+        <div class="figure center-content" data-ref="reviews_distribution">
+            <img width=200 src="./figures/reviews_distribution.png">
+            <div class="caption">
+                <span class="text">The distribution of reviews. Note the clustering of ~1,000 reviews.</span>
+            </div>
+        </div>
+        <p>
+            As Google Maps has a limit to how many reviews can be seen on a page (about 1,000), we are severely limited on POIs with many thousands of reviews. This is taken into
+            consideration in our project. To divide the POIs evenly into groups based on popularity, we see there would be the last and second last bin, with the rest of the bins
+            filling out the last group.
+        </p>
+        <div class="figure center-content" data-ref="distribution_nationalities">
+            <img width=200 src="./figures/distribution_nationalities.png">
+            <div class="caption">
+                <span class="text">The most frequent nationalities in our data.</span>
+            </div>
+        </div>
+        <p>
+            
+        </p>
+        <div class="figure center-content" data-ref="ratings_da_en">
+            <img width=200 src="./figures/ratings_da_en.png">
+            <div class="caption">
+                <span class="text">Frequency of the initial ratings. A user can rate 1-5 on a POI.</span>
+            </div>
+        </div>
 
         <h2>Text Analysis</h2>
         <p>
@@ -66,7 +93,8 @@
 
         <h2>Further Research</h2>
         <p>
-            How could this project evolve?
+            We have an idea for how this project could evolve. For the tokens of the reviews, it could be possible to categorize the tokens in groups like fun, history, family etc.
+            to analyse what kind of goal a group of people seek when visiting Copenhagen or another specific location.
         </p>
     </body>
 </html>
