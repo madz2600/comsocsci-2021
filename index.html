@@ -125,12 +125,14 @@
             can be categorised as either danish or foreign i.e. be used in the networks.
             In order to properly compare the two networks we were forced to scale the tourist network down to the same
             size as the locals network. After having done so we get these 2 networks:
-            <div class="figure" data-ref="unique-name">
-                <img height=500 src="images/da_and_tour_plot.png">
-                </div>
+        </p> 
+        <div class="figure" data-ref="da_and_tour_plot">
+            <img height=500 src="images/da_and_tour_plot.png">
+            <div class="caption">
+                <span class="text">Local and tourist networks computed from reviews.</span>
             </div>
-
-
+        </div>
+        <p>
             We see that both the normalized tourist network and the danish network has all 73 nodes/attractions present.
             From the avg degree/ num. egdes we notice that the tourist network seems a bit more connected.
             <br>
@@ -138,7 +140,6 @@
         </p>
 
         <h3>A closer look at the comparison of the two networks.</h3>
-
 
         <p>
             We will start out by plotting the most and least connected nodes for both networks based on a
@@ -151,12 +152,14 @@
             The random network will be constructed in such a way, it has the same properties as the average of our two
             networks, in terms of degrees, nodes, weights etc.
             patterns we are seeing are not just random.
-
-            <div class="figure" data-ref="unique-name">
-                <img height=450 src="images/lows_n_highs.png">
-                </div>
+        </p>
+        <div class="figure" data-ref="lows_n_highs">
+            <img height=450 src="images/lows_n_highs.png">
+            <div class="caption">
+                <span class="text">Comparison of the attraction node "strength" for both locals and tourists.</span>
             </div>
-
+        </div>
+        <p>
             These results give some insigt to what the locals prefer versus the tourists. It is clear that they have
             very different preferences, and that the tourists
             prefer the famous, traditional and big attractions such as Christiansborg, The little Mermaid and the
@@ -168,11 +171,14 @@
             <br>
             To more directly look at the attractions with the biggest interest difference we plot the
             degree-edge-weight for each attraction for both the locals and tourists.
-
-            <div class="figure" data-ref="unique-name">
-                <img height=315 src="images/sorted_by_name.png">
-                </div>
+        </p>
+        <div class="figure" data-ref="sorted_by_name">
+            <img height=315 src="images/sorted_by_name.png">
+            <div class="caption">
+                <span class="text">Combined comparison of attraction node "strength" for both locals and tourists.</span>
             </div>
+        </div>
+        <p>
             <br>
             <br>
             Some high interest points of locals which are of low interest for the tourists are: Bakken, Sophienholm,
@@ -183,17 +189,17 @@
             <br>
             Again its apperent that the danes prefer parks and more subtle attractions where as the tourists focus
             on the bigger traditionel attractions.
-
         </p>
 
         <h3>A look at their density distribution:</h3>
-        <p>
 
-            <div class="figure" data-ref="unique-name">
-                <img height=500 src="images/dist.png">
-                </div>
+        <div class="figure" data-ref="dist">
+            <img height=500 src="images/dist.png">
+            <div class="caption">
+                <span class="text">Comparing the two networks with a random network using a distribution of node "strength".</span>
             </div>
-
+        </div>
+        <p>
             In this plot it does very much make sense to including the random network as it clearly shows that the
             random network is much more centered around some mean value and doesnt have nearly the same amount of
             extremes as in either the local or danes network. This demonstrates that the 2 networks are not infact
@@ -206,7 +212,6 @@
             the opposite is true with respect to the tourists. As its clear from the density that the tourists have a
             greater amount of outliers in the high end, compared to the locals. This can be interpreted as the tourists
             having a few very central and popular attractions that they are likely to attend if they visit Denmark.
-
         </p>
 
         <br>
