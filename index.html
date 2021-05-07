@@ -19,6 +19,12 @@
         <p>
             In this project, we investigate how locals and tourists of the Danish city Copenhagen each perceive the city in both their visitation behaviour and how to rate it.
             To do this, we will use data from Google Maps reviews of ~70 points of interest (POI) varying in popularity. We measure popularity with the amount of reviews.
+            <br>
+            <br>
+            (Disclaimer: The terms tourists, internationals, foreigners etc will have same meaning and will be used
+            interchangeable. The same goes for the terms locals, Danes, residents etc. All these have the same meaning and will
+            be used interchangeable as well.)
+
         </p>
 
         <h2>The data</h2>
@@ -105,24 +111,203 @@
         </p>
 
         <h2>Network Analysis</h2>
+        <h3>Turning our data into a network</h3>
         <p>
-            How do locals and tourists connect different POIs?
+            In order to analyse the behavioral patterns of locals versus the tourists it makes sense
+            to try and model our data as a network.
+            We turn our data into a network with the following procedure. Each attraction is a node and two nodes are connected
+            by an edge if the same person has reviewed in other words visited both attractions.
+            Each edge further gets a weight which corresponds to how many people have visited both
+            attractions the given edge is connecting.
+            <br>
+            <br>
+            We will create 2 networks, one for locals and one for the tourists. Only observations/reviews that have a caption
+            can be categorised as either danish or foreign i.e. be used in the networks.
+            In order to properly compare the two networks we were forced to scale the tourist network down to the same
+            size as the locals network. After having done so we get these 2 networks:
+            <div class="figure" data-ref="unique-name">
+                <img height=500 src="images/da_and_tour_plot.png">
+                </div>
+            </div>
+
+
+            We see that both the normalized tourist network and the danish network has all 73 nodes/attractions present.
+            From the avg degree/ num. egdes we notice that the tourist network seems a bit more connected.
+            <br>
+            <br>
         </p>
 
+        <h3>A closer look at the comparison of the two networks.</h3>
+
+
         <p>
-            How do locals and tourists connect different POIs? <br>
-            This look nice
+            We will start out by plotting the most and least connected nodes for both networks based on a
+            combined degree-edge-weight metric. For a given node this will be equal to two times its
+            degree plus the sum of the weights of all edges that connect to the node. The reason for this
+            metric is to try and emphasis nodes that have a lot of connections (high degree) but also nodes
+            which has strong connections (high edge weight) to other nodes.
+            <br>
+            For good measure we will include a random network where it makes sense to do so.
+            The random network will be constructed in such a way, it has the same properties as the average of our two
+            networks, in terms of degrees, nodes, weights etc.
+            patterns we are seeing are not just random.
+
+            <div class="figure" data-ref="unique-name">
+                <img height=450 src="images/lows_n_highs.png">
+                </div>
+            </div>
+
+            These results give some insigt to what the locals prefer versus the tourists. It is clear that they have
+            very different preferences, and that the tourists
+            prefer the famous, traditional and big attractions such as Christiansborg, The little Mermaid and the
+            Round Tower, where as the danes prefer the more "local" and down to earth attractions such as Valby Park,
+            Søndermarken and The Hermitage Hunting Lodge.
+
+            <br>
+            <br>
+            <br>
+            To more directly look at the attractions with the biggest interest difference we plot the
+            degree-edge-weight for each attraction for both the locals and tourists.
+
+            <div class="figure" data-ref="unique-name">
+                <img height=315 src="images/sorted_by_name.png">
+                </div>
+            </div>
+            <br>
+            <br>
+            Some high interest points of locals which are of low interest for the tourists are: Bakken, Sophienholm,
+            Freedom Museum etc.
+            <br>
+            Some high interest points of tourists which are of low interest for the locals are: Gefion Fountain,
+            Kastellet, Det Kongelige Bibliotek etc.
+            <br>
+            Again its apperent that the danes prefer parks and more subtle attractions where as the tourists focus
+            on the bigger traditionel attractions.
+
+        </p>
+
+        <h3>A look at their density distribution:</h3>
+        <p>
+
+            <div class="figure" data-ref="unique-name">
+                <img height=500 src="images/dist.png">
+                </div>
+            </div>
+
+            In this plot it does very much make sense to including the random network as it clearly shows that the
+            random network is much more centered around some mean value and doesnt have nearly the same amount of
+            extremes as in either the local or danes network. This demonstrates that the 2 networks are not infact
+            just random.
+            <br>
+            <br>
+            From this plot we expected that the locals would have had a greater amount of density in the low-mid
+            end as this would show that they had visited a wider and more diverse amount of attracktions and not just
+            the most popular onces. This does not seem to be the case, as the two distributions are very alike. Although,
+            the opposite is true with respect to the tourists. As its clear from the density that the tourists have a
+            greater amount of outliers in the high end, compared to the locals. This can be interpreted as the tourists
+            having a few very central and popular attractions that they are likely to attend if they visit Denmark.
+
+        </p>
+
+        <br>
+        <br>
+        <h3>Other network properties:</h3>
+        <p>
+            Lastly we could take a look at some other network properties such as the average shortest path
+            and the clustering coefficient:
+            <br>
+            <br>
+            Average shortest path length in the Tourist network:   1.655
+            <br>
+            Average shortest path length in the Local network:     1.705
+            <br>
+            Average shortest path length in the Random network:    1.653
+            <br>
+            <br>
+            The clustering coefficient of the Tourist network is: 0.486
+            <br>
+            The clustering coefficient of the Local network is:   0.474
+            <br>
+            The clustering coefficient of the Random network is:  0.353
+            <br>
+            <br>
+
+            As expected the local and tourist network are more clustered than the random network indicating that they
+            are infact not just random. We further see that the average shortest path for the tourist is less than
+            for the locals, meaning that there is a greater diversity in what the tourist visit as the attractions
+            are connected via shorter paths. We would have expected the opposite.
+            <br>
+            <br>
+        </p>
+
+        <h3>One big short coming of the network analysis:</h3>
+        <p>
+            Because we are limited to 1000 reviews per attraction we are faced with some big shortcomings with
+            respect to the network analyses. For instance the biggest attractions such as Tivoli Gardens with 50.000 plus
+            reviews should definitely be a big interconnections in the network, but this is not the case in our networks
+            since we only have the 1000 most recent reviews thus neglecting a lot of possible connections to or from Tivoli
+            Gardens and therefore not properly representing Tivoli Gardens. Only having the most recent reviews will also
+            favour the Tourists: A Tourist is likely to have visited a lot of attractions in a short span. Whereas some
+            local might have visited overall more places, but have done so over a longer period of time. Therefore it is
+            very likely that not all not all of the locals reviews are present in the data. Because of this big short
+            coming all the results should be taken with a big grain of salt.
+            <br>
+            <br>
+            One work around could be to redownload all the available data from Trip Adviser which allegedly
+            should be easy and without limitations. In order to do so all the download code and preprocessing
+            code would have to be rewritten, which is not viable at this point.
+
+
+            <br>
+            <br>
+
+            Another work around for this could be to only concider attractions which has a 1000 or less reviews.
+            This also has drawbacks since it basically removes all the attractions that tourists who visit denmark
+            would want to see in the first place. Futher more it ruins big interconnections in the network, since
+            everything is equally unpopular.
+
+
+
         </p>
 
         <h2>Conclusion</h2>
         <p>
-            What did we learn?
+            The results from the network analysis should be considered with some skepticism due
+            to the already mentioned shortcomings of the data.
+            <br>
+            With that in mind we found that the tourist network
+            and local network were far from random and had proper underlying network structure. The structure and
+            characteristics of the two networks very quite alike, but with vastly different nodes being center of
+            attention in each network.
+            <br>
+
+            Further we found, as
+            expected, that the tourists were more interested in the big traditionally popular glamorous places such as
+            The Little Mermaid etc. Where as the locals were more interested in the more subtly attractions such as
+            various parks.
+            <br>
+            Additional, we found that the most popular attractions in the
+            eyes of the tourists very more extreme than the most popular attraction in the yes of the locals. Which was
+            expected as it confirms that tourists have some key places they are very likely to visit when in denmark.
+            <br>
+            Lastly and contrary to prior believes we found that the attractions were more tightly connected
+            (shorter avg shortest path) in the tourist network meaning that the tourist visits a more diverse range of
+            attractions. Here we assumed that the locals would be better at attended a wider range of attractions,
+            (especially the less popular)
+            thus better tying together their network. This was not the case.
+
         </p>
 
         <h2>Further Research</h2>
+        <h3>How could this project evolve?</h3>
         <p>
+
             We have an idea for how this project could evolve. For the tokens of the reviews, it could be possible to categorize the tokens in groups like fun, history, family etc.
             to analyse what kind of goal a group of people seek when visiting Copenhagen or another specific location.
+            <br>
+            <br>
+            Furthermore It would be interesting to redo the network analysis with proper data which is not limited in one way
+            or another. The data from trip adviser seems as promising candidate for this.
         </p>
         
         <h2>Resources</h2>
